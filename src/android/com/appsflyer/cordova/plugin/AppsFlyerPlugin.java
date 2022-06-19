@@ -264,8 +264,8 @@ public class AppsFlyerPlugin extends CordovaPlugin {
             }
 
             if (isDebug == true) {
-                Log.d("AppsFlyer(nunet-uchida) / isConversionData = ", JSON.stringify(isConversionData));
-                Log.d("AppsFlyer(nunet-uchida) / mConversionListener = ", JSON.stringify(mConversionListener));
+                Log.d("AppsFlyer(nunet-uchida) / isConversionData = ", isConversionData.toString());
+                Log.d("AppsFlyer(nunet-uchida) / mConversionListener = ", mConversionListener.toString());
             }
             if (isConversionData == true) {
 
@@ -280,7 +280,7 @@ public class AppsFlyerPlugin extends CordovaPlugin {
             instance.init(devKey, gcdListener, cordova.getActivity());
 
             if (isDebug == true) {
-                Log.d("AppsFlyer(nunet-uchida) / mConversionListener = ", JSON.stringify(mConversionListener));
+                Log.d("AppsFlyer(nunet-uchida) / mConversionListener = ", mConversionListener.toString());
             }
             if (mConversionListener == null) {
                 instance.start(c, devKey, new AppsFlyerRequestListener() {
@@ -406,9 +406,9 @@ public class AppsFlyerPlugin extends CordovaPlugin {
      */
     private void handleSuccess(String eventType, Map<String, Object> conversionData, Map<String, String> attributionData) {
         
-        Log.d("AppsFlyer(nunet-uchida) / handleSuccess() start... eventType = ", JSON.stringify(eventType));
-        Log.d("AppsFlyer(nunet-uchida) / handleSuccess() start... conversionData = ", JSON.stringify(conversionData));
-        Log.d("AppsFlyer(nunet-uchida) / handleSuccess() start... attributionData = ", JSON.stringify(attributionData));
+        Log.d("AppsFlyer(nunet-uchida) / handleSuccess() start... eventType = ", eventType);
+        Log.d("AppsFlyer(nunet-uchida) / handleSuccess() start... conversionData = ", conversionData.toString());
+        Log.d("AppsFlyer(nunet-uchida) / handleSuccess() start... attributionData = ", attributionData.toString());
 
         JSONObject obj = new JSONObject();
 
@@ -433,10 +433,10 @@ public class AppsFlyerPlugin extends CordovaPlugin {
 
         final String jsonStr = params.toString();
 
-        Log.d("AppsFlyer(nunet-uchida) / sendEvent() params = ", JSON.stringify(params));
-        Log.d("AppsFlyer(nunet-uchida) / sendEvent() mAttributionDataListener = ", JSON.stringify(mAttributionDataListener));
-        Log.d("AppsFlyer(nunet-uchida) / sendEvent() mConversionListener = ", JSON.stringify(mConversionListener));
-        Log.d("AppsFlyer(nunet-uchida) / sendEvent() mDeepLinkListener = ", JSON.stringify(mDeepLinkListener));
+        Log.d("AppsFlyer(nunet-uchida) / sendEvent() params = ", params.toString());
+        Log.d("AppsFlyer(nunet-uchida) / sendEvent() mAttributionDataListener = ", mAttributionDataListener.toString());
+        Log.d("AppsFlyer(nunet-uchida) / sendEvent() mConversionListener = ", mConversionListener.toString());
+        Log.d("AppsFlyer(nunet-uchida) / sendEvent() mDeepLinkListener = ", mDeepLinkListener.toString());
 
         if (
                 (params.optString("type") == AF_ON_ATTRIBUTION_FAILURE
@@ -453,7 +453,7 @@ public class AppsFlyerPlugin extends CordovaPlugin {
             PluginResult result = new PluginResult(PluginResult.Status.OK, jsonStr);
             Log.d("AppsFlyer(nunet-uchida) / sendEvent() / set setKeepCallback", "true");
             result.setKeepCallback(true);
-            Log.d("AppsFlyer(nunet-uchida) / sendEvent() / sendPluginResult = ", JSON.stringify(result));
+            Log.d("AppsFlyer(nunet-uchida) / sendEvent() / sendPluginResult = ", result.toString());
             mConversionListener.sendPluginResult(result);
         } else if (
                 params.optString("type") == AF_DEEP_LINK
