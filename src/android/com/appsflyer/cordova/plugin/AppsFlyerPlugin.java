@@ -264,7 +264,12 @@ public class AppsFlyerPlugin extends CordovaPlugin {
             }
 
             if (isDebug == true) {
-                Log.d("AppsFlyer(nunet-uchida) / isConversionData = ", isConversionData.toString());
+                if (isConversionData == true) {
+                    Log.d("AppsFlyer(nunet-uchida) / isConversionData = ", "true");                    
+                } else {
+                    Log.d("AppsFlyer(nunet-uchida) / isConversionData = ", "not true";                                        
+                }
+
                 Log.d("AppsFlyer(nunet-uchida) / mConversionListener = ", mConversionListener.toString());
             }
             if (isConversionData == true) {
