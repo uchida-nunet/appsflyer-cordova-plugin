@@ -269,7 +269,7 @@ public class AppsFlyerPlugin extends CordovaPlugin {
                 } else {
                     Log.d("AppsFlyer(nunet-uchida) / isConversionData = ", "not true");                                        
                 }
-                if (mConversionListener) {
+                if (mConversionListener != null) {
                     Log.d("AppsFlyer(nunet-uchida) / mConversionListener = ", mConversionListener.toString());
                 } else {
                     Log.d("AppsFlyer(nunet-uchida) / mConversionListener = ", "");
@@ -288,7 +288,7 @@ public class AppsFlyerPlugin extends CordovaPlugin {
             instance.init(devKey, gcdListener, cordova.getActivity());
 
             if (isDebug == true) {
-                if (mConversionListener) {
+                if (mConversionListener != null) {
                     Log.d("AppsFlyer(nunet-uchida) / mConversionListener = ", mConversionListener.toString());
                 } else {
                     Log.d("AppsFlyer(nunet-uchida) / mConversionListener = ", "");
@@ -419,10 +419,10 @@ public class AppsFlyerPlugin extends CordovaPlugin {
     private void handleSuccess(String eventType, Map<String, Object> conversionData, Map<String, String> attributionData) {
         
         Log.d("AppsFlyer(nunet-uchida) / handleSuccess() start... eventType = ", eventType);
-        if (conversionData) {
+        if (conversionData != null) {
             Log.d("AppsFlyer(nunet-uchida) / handleSuccess() start... conversionData = ", conversionData.toString());
         }
-        if (attributionData) {
+        if (attributionData != null) {
             Log.d("AppsFlyer(nunet-uchida) / handleSuccess() start... attributionData = ", attributionData.toString());
         }
 
@@ -450,13 +450,13 @@ public class AppsFlyerPlugin extends CordovaPlugin {
         final String jsonStr = params.toString();
 
         Log.d("AppsFlyer(nunet-uchida) / sendEvent() params = ", params.toString());
-        if (mAttributionDataListener){
+        if (mAttributionDataListener != null){
             Log.d("AppsFlyer(nunet-uchida) / sendEvent() mAttributionDataListener = ", mAttributionDataListener.toString());
         }
-        if (mConversionListener) {
+        if (mConversionListener != null) {
             Log.d("AppsFlyer(nunet-uchida) / sendEvent() mConversionListener = ", mConversionListener.toString());
         }
-        if (mDeepLinkListener) {
+        if (mDeepLinkListener != null) {
             Log.d("AppsFlyer(nunet-uchida) / sendEvent() mDeepLinkListener = ", mDeepLinkListener.toString());
         }
 
